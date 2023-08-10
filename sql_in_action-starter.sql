@@ -51,7 +51,7 @@ select avg(availability_365) from intro_sql.final_airbnb;
 -- HINT: There are a few ways to go about this. Remember that an empty cell is "no value", but not necessarily NULL
 
 -- EXPECTED OUTPUT: 6 rows
-
+select * from intro_sql.final_airbnb where number_of_reviews = 0;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 7 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find the id of the listing with a room_type of "Private room" that has the most reviews 
@@ -59,14 +59,16 @@ select avg(availability_365) from intro_sql.final_airbnb;
 
 -- EXPECTED OUTPUT: 58059
 
-
+select id from intro_sql.final_airbnb  Where room_type = "Private room" Order by number_of_reviews desc limit 1;
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 8 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find the most popular neighbourhood for listings 
 -- HINT: Look for which neighbourhood appears most frequently in the neighbourhood column
 -- HINT: You are creating "summary rows" for each neighbourhood, so you will just see one entry for each neighbourhood
 
 -- EXPECTED OUTPUT: Williamsburg
--- INVESTIGATE: Should Williamsburg be crowned the most popular neighbourhood?
+-- INVESTIGATE: Should Williamsburg be crowned the most popular neighbourhood? Yes
+
+select neighbourhood from intro_sql.final_airbnb group by neighbourhood order by count(*) desc limit 1;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 9 >>>>>>>>>>>>>>>>>>>>>>>
 -- Query the data to discover which listing is the most popular using the reviews_per_month for all listings with a minimum_nights value of less than 7

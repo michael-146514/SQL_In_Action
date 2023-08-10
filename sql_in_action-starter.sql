@@ -25,8 +25,7 @@ select host_name from intro_sql.final_airbnb where host_id = 63613;
 -- HINT: This is a "distinct" operation...
 
 -- EXPECTED OUTPUT: 40 neighbourhoods listed
-
-
+select distinct neighbourhood from intro_sql.final_airbnb limit 40;
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 4 >>>>>>>>>>>>>>>>>>>>>>>
 
 -- Find both the highest price listing and the lowest price listing, displaying the entire row for each
@@ -36,6 +35,8 @@ select host_name from intro_sql.final_airbnb where host_id = 63613;
 
 -- EXPECTED OUTPUT: Highest = 785, Lowest = 55
 
+select max(price) from intro_sql.final_airbnb;
+select price from intro_sql.final_airbnb order by price asc limit 1;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 5 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find the average availability for all listings in the data set (using the availability_365 column)
@@ -43,6 +44,7 @@ select host_name from intro_sql.final_airbnb where host_id = 63613;
 
 -- EXPECTED OUTPUT: 165.3904
 
+select avg(availability_365) from intro_sql.final_airbnb;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 6 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find all listings that do NOT have a review

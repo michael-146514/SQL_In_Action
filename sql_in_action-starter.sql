@@ -11,13 +11,14 @@ SELECT * FROM intro_sql.final_airbnb;
 -- Find out how many rows are in the table "final_airbnb"
 -- EXPECTED OUTPUT: 146
 
-
+Select count(*) FROM intro_sql.final_airbnb;
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 2 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find out the name of the host for "host_id" 63613
 -- HINT: "Where" could it be?
 
 -- EXPECTED OUTPUT: Patricia
 
+select host_name from intro_sql.final_airbnb where host_id = 63613;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 3 >>>>>>>>>>>>>>>>>>>>>>>
 -- Query the data to just show the unique neighbourhoods listed

@@ -75,7 +75,7 @@ select neighbourhood from intro_sql.final_airbnb group by neighbourhood order by
 -- HINT: Sorting is still your friend! So are constraints.
 
 -- EXPECTED OUTPUT: 58059
-
+select id from intro_sql.final_airbnb order by number_of_reviews desc limit 1;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 10 >>>>>>>>>>>>>>>>>>>>>>>
 -- Find out which host has the most listings. 
@@ -84,7 +84,7 @@ select neighbourhood from intro_sql.final_airbnb group by neighbourhood order by
 -- HINT: Work this one step at a time. See if you can find a way to just display the count of listings per host first.
 
 -- EXPECTED OUTPUT: The Box House Hotel with 6 listings
-
+select host_id, host_name, COUNT(*) as num_listings from intro_sql.final_airbnb group by host_id, host_name order by num_listings desc limit 6;
 
 -- <<<<<<<<<<<<<<<<<<<<<< PROBLEM 11 >>>>>>>>>>>>>>>>>>>>>>>
 -- <<<<<<<<<<<<<<<<<<<<<<< WRAP UP >>>>>>>>>>>>>>>>>>>>>>>>>
